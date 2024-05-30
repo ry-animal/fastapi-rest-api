@@ -4,7 +4,7 @@ from pydantic import BaseModel
 app = FastAPI()
 
 class Item(BaseModel):
-    text: str
+    text: str = "sample"
     is_done: bool = False
 
 items = []
