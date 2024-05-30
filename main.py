@@ -11,14 +11,9 @@ class Item(BaseModel):
 
 items = []
 
-
 @app.get("/")
 async def read_root():
     return {"Hello": "World"}
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
 
 @app.post("/items")
 def create_item(item: Item):
@@ -35,3 +30,7 @@ def get_item(item_id: int) -> Item:
         return items[item_id]
     else:
         raise HTTPException(status_code=404, detail=f"Item {item_id} not found")
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
