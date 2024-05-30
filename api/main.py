@@ -7,6 +7,8 @@ class Item(BaseModel):
     text: str = "sample"
     is_done: bool = False
 
+Item.model_rebuild()
+
 items = []
 
 @app.get("/")
